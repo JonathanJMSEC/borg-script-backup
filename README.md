@@ -18,32 +18,22 @@ Este script en Bash automatiza la creación de backups cifrados utilizando [Borg
 - Log de cada ejecución
 - Contraseña almacenada de forma segura en archivo protegido
 
-## Instalaciones
+## Dependencias
 
-BorgBackup:
 ```
-sudo apt install borgbackup
-```
-
-libnotify:
-```
-sudo apt-get install libnotify-dev
+sudo apt update
+sudo apt install borgbackup libnotify-bin cron
 ```
 
-Cron:
-```
-sudo apt-get install cron`
-```
+## Configuración Inicial
 
-## Pasos necesarios para el uso
-
-Creá el archivo .borg_passphrase con tu contraseña
+1. Creá el archivo ".borg_pass" con tu contraseña
 ```
 echo "mi_contraseña_segura" > ~/.borg_pass
 chmod 600 ~/.borg_passphrase
 ```
 
-### Preparar el Almacenamiento externo:
+2. Preparar el Almacenamiento externo:
 - Conectá el USB y ejecutá:
 ```lsblk -f```
 Analiza la salida  y copia la ruta del alcenamiento para el próximo comando
@@ -64,9 +54,15 @@ Analiza la salida  y copia la ruta del alcenamiento para el próximo comando
 PATH_ALM_EXTERNO="/media/$USER/Backup" -- Donde se almacena  el  backup
 PATH_GUARDAR="/home/$USER" -- Rutas  de  los  archivos a  guardar
 
-##  Ejecución:
+##  Ejecución Manual:
+
+1. Permisos correspondientes:
 ```
 chmod +x backup.sh
+```
+
+2. Ejecutar:
+```
 ./backup.sh
 ```
 
@@ -79,3 +75,11 @@ chmod +x backup.sh
 ```
 0 0 * * 0 /ruta/completa/a/backup.sh
 ```
+
+## Funcionalidades:
+
+- Backup cifrado con Borg (repokey)
+- Limpieza automática con prune (mantiene solo los backups de los últimos 30 días)
+- Logs en /home/$USER/backup.log
+- Notificaciones en escritorio con notify-send
+- Reintentos si el pendrive no está conectado (hasta 3 veces)
