@@ -21,7 +21,8 @@ Este script en Bash automatiza la creación de backups cifrados utilizando [Borg
 ## Instalaciones
 
 BorgBackup:
-```sudo apt install borgbackup```
+```sudo apt install borgbackup
+```
 
 libnotify:
 ```sudo apt-get install libnotify-dev```
