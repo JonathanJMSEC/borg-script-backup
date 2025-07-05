@@ -65,8 +65,10 @@ PATH_ALM_EXTERNO="/media/$USER/Backup" -- Donde se almacena  el  backup
 PATH_GUARDAR="/home/$USER" -- Rutas  de  los  archivos a  guardar
 
 ##  Ejecución:
-```chmod +x backup.sh
-./backup.sh```
+```
+chmod +x backup.sh
+./backup.sh
+```
 
 ## Automatización con  Cron:
 
@@ -74,4 +76,6 @@ PATH_GUARDAR="/home/$USER" -- Rutas  de  los  archivos a  guardar
 ```crontab -e```
 
 - Línea para ejecutar el script todos los domingos a las 00:00:
-```0 0 * * 0 /ruta/completa/a/backup.sh```
+```
+0 0 * * 0 /ruta/completa/a/backup.sh
+```
