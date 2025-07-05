@@ -21,19 +21,25 @@ Este script en Bash automatiza la creación de backups cifrados utilizando [Borg
 ## Instalaciones
 
 BorgBackup:
-```sudo apt install borgbackup
+```
+sudo apt install borgbackup
 ```
 
 libnotify:
-```sudo apt-get install libnotify-dev```
+```
+sudo apt-get install libnotify-dev
+```
 
 Cron:
-```sudo apt-get install cron```
+```
+sudo apt-get install cron`
+```
 
 ## Pasos necesarios para el uso
 
 Creá el archivo .borg_passphrase con tu contraseña
-```echo "mi_contraseña_segura" > ~/.borg_pass
+```
+echo "mi_contraseña_segura" > ~/.borg_pass
 chmod 600 ~/.borg_passphrase
 ```
 
