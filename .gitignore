@@ -1,0 +1,5 @@
+*.gpg
+*.pass
+*.key
+*.secret
+.borg_pass
